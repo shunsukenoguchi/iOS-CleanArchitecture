@@ -1,14 +1,10 @@
 import Foundation
 
-protocol FetchPokemonListDataStore {
-    func fetch() async throws -> PokemonListEntity
-}
-
 /// ポケモン一覧を取得するDataStore
 final class FetchPokemonListDataStoreImpl: FetchPokemonListDataStore {
     private let apiClient: APIClient
     
-    init(apiClient: APIClient = APIClientImpl()) {
+    init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
     

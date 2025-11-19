@@ -20,10 +20,8 @@ final class PokemonListViewModel {
     private let fetchPokemonListUseCase: FetchPokemonList
     
     // MARK: - Initializer
-    init(fetchPokemonListUseCase: FetchPokemonList? = nil) {
-        self.fetchPokemonListUseCase = fetchPokemonListUseCase ?? FetchPokemonList(
-            pokemonRepository: PokemonRepositoryImpl()
-        )
+    init(fetchPokemonListUseCase: FetchPokemonList) {
+        self.fetchPokemonListUseCase = fetchPokemonListUseCase
     }
     
     // MARK: - Public Methods

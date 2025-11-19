@@ -7,17 +7,16 @@
 
 import Foundation
 
-/// APIクライアントのプロトコル
-protocol APIClient {
-    func request<T: APIRequest>(_ request: T) async -> Result<T.ResponseType, APIError>
-}
-
 /// PokeAPIと通信するための汎用的なHTTPクライアント
-final class APIClientImpl: APIClient {
+final class APIClient {
     private let session: URLSession
     
-    init(session: URLSession = .shared) {
+    init(session: URLSession) {
         self.session = session
+    }
+    
+    convenience init() {
+        self.init(session: .shared)
     }
     
     /// APIリクエストを実行する
