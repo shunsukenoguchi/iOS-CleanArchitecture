@@ -18,15 +18,18 @@ struct iOS_CleanArchitectureApp: App {
 }
 
 extension View {
+    @MainActor
     func setupDependencies() -> some View {
         let apiClient = APIClient()
         let dataStore = FetchPokemonListDataStoreImpl(apiClient: apiClient)
         let pokemonRepository = PokemonRepositoryImpl(dataStore: dataStore)
         let fetchPokemonListUseCase = FetchPokemonList(pokemonRepository: pokemonRepository)
+        let pokemonListViewModel = PokemonListViewModel(fetchPokemonListUseCase: fetchPokemonListUseCase)
         
         return self
             .environment(\.dataStore, dataStore)
             .environment(\.pokemonRepository, pokemonRepository)
             .environment(\.fetchPokemonListUseCase, fetchPokemonListUseCase)
+            .environment(\.pokemonListViewModel, pokemonListViewModel)
     }
 }

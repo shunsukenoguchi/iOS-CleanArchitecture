@@ -35,3 +35,13 @@ struct FetchPokemonListUseCaseKey: EnvironmentKey {
     )
 }
 
+// MARK: - PokemonListViewModel Key
+
+/// PokemonListViewModel の Environment Key
+@MainActor
+struct PokemonListViewModelKey: EnvironmentKey {
+    static let defaultValue: PokemonListViewModel = PokemonListViewModel(
+        fetchPokemonListUseCase: FetchPokemonListUseCaseKey.defaultValue
+    )
+}
+

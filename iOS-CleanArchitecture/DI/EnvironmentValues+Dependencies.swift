@@ -26,5 +26,11 @@ extension EnvironmentValues {
         get { self[FetchPokemonListUseCaseKey.self] }
         set { self[FetchPokemonListUseCaseKey.self] = newValue }
     }
+    
+    /// PokemonListViewModel への環境アクセス
+    var pokemonListViewModel: PokemonListViewModel {
+        get { self[PokemonListViewModelKey.self] }
+        set { self[PokemonListViewModelKey.self] = newValue }
+    }
 }
 

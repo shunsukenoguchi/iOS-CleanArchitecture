@@ -12,7 +12,7 @@ protocol PokemonRepository {
     /// ポケモン一覧を取得する
     /// - Returns: ポケモン一覧エンティティ
     /// - Throws: APIError
-    func fetchPokemonList() async throws -> PokemonListEntity
+    func fetchPokemonList() async throws -> PokemonList
 }
 
 
@@ -24,8 +24,9 @@ final class PokemonRepositoryImpl: PokemonRepository {
     }
     
     /// ポケモン一覧を取得する
-    func fetchPokemonList() async throws -> PokemonListEntity {
-        return try await dataStore.fetch()
+    func fetchPokemonList() async throws -> PokemonList {
+        let pokemonListEntity = try await dataStore.fetch()
+        return PokemonListTranslater.translate(from: pokemonListEntity)
     }
 }
 

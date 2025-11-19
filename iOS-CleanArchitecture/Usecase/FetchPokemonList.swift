@@ -6,7 +6,6 @@ struct FetchPokemonList {
     }
     
     func execute() async throws -> PokemonList {
-        let pokemonListEntity = try await pokemonRepository.fetchPokemonList()
-        return PokemonListTranslater.translate(from: pokemonListEntity)
+        return try await pokemonRepository.fetchPokemonList()
     }
 }
