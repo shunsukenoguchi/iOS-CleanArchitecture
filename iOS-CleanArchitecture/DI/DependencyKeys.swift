@@ -7,6 +7,10 @@
 
 import SwiftUI
 import Foundation
+import Domain
+import Infra
+import Repository
+import Presentation
 
 // MARK: - FetchPokemonListDataStore Key
 
@@ -39,8 +43,8 @@ struct FetchPokemonListUseCaseKey: EnvironmentKey {
 
 /// PokemonListViewModel の Environment Key
 @MainActor
-struct PokemonListViewModelKey: EnvironmentKey {
-    static let defaultValue: PokemonListViewModel = PokemonListViewModel(
+public struct PokemonListViewModelKey: EnvironmentKey {
+    public static let defaultValue: PokemonListViewModel = PokemonListViewModel(
         fetchPokemonListUseCase: FetchPokemonListUseCaseKey.defaultValue
     )
 }

@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8EC028F02ECE337A00EC9616 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = DOMAIN_PRODUCT /* Domain */; };
+		8EC028F12ECE337A00EC9616 /* Infra in Frameworks */ = {isa = PBXBuildFile; productRef = INFRA_PRODUCT /* Infra */; };
+		8EC028F22ECE337A00EC9616 /* Repository in Frameworks */ = {isa = PBXBuildFile; productRef = REPOSITORY_PRODUCT /* Repository */; };
+		8EC028F32ECE337A00EC9616 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = PRESENTATION_PRODUCT /* Presentation */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8EC026022EB7ADA600EC9616 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC028F32ECE337A00EC9616 /* Presentation in Frameworks */,
+				8EC028F22ECE337A00EC9616 /* Repository in Frameworks */,
+				8EC028F12ECE337A00EC9616 /* Infra in Frameworks */,
+				8EC028F02ECE337A00EC9616 /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +123,10 @@
 			);
 			name = "iOS-CleanArchitecture";
 			packageProductDependencies = (
+				DOMAIN_PRODUCT /* Domain */,
+				INFRA_PRODUCT /* Infra */,
+				REPOSITORY_PRODUCT /* Repository */,
+				PRESENTATION_PRODUCT /* Presentation */,
 			);
 			productName = "iOS-CleanArchitecture";
 			productReference = 8EC025F42EB7ADA500EC9616 /* iOS-CleanArchitecture.app */;
@@ -196,6 +211,10 @@
 			mainGroup = 8EC025EB2EB7ADA500EC9616;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				DOMAIN_REF /* XCLocalSwiftPackageReference "Packages/Domain" */,
+				INFRA_REF /* XCLocalSwiftPackageReference "Packages/Infra" */,
+				REPOSITORY_REF /* XCLocalSwiftPackageReference "Packages/Repository" */,
+				PRESENTATION_REF /* XCLocalSwiftPackageReference "Packages/Presentation" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8EC025F52EB7ADA500EC9616 /* Products */;
@@ -580,6 +599,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		DOMAIN_REF /* XCLocalSwiftPackageReference "Packages/Domain" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Domain;
+		};
+		INFRA_REF /* XCLocalSwiftPackageReference "Packages/Infra" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Infra;
+		};
+		PRESENTATION_REF /* XCLocalSwiftPackageReference "Packages/Presentation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Presentation;
+		};
+		REPOSITORY_REF /* XCLocalSwiftPackageReference "Packages/Repository" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Repository;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DOMAIN_PRODUCT /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DOMAIN_REF /* XCLocalSwiftPackageReference "Packages/Domain" */;
+			productName = Domain;
+		};
+		INFRA_PRODUCT /* Infra */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = INFRA_REF /* XCLocalSwiftPackageReference "Packages/Infra" */;
+			productName = Infra;
+		};
+		PRESENTATION_PRODUCT /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = PRESENTATION_REF /* XCLocalSwiftPackageReference "Packages/Presentation" */;
+			productName = Presentation;
+		};
+		REPOSITORY_PRODUCT /* Repository */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = REPOSITORY_REF /* XCLocalSwiftPackageReference "Packages/Repository" */;
+			productName = Repository;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8EC025EC2EB7ADA500EC9616 /* Project object */;
 }

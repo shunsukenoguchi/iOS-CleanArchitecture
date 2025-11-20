@@ -7,6 +7,10 @@
 
 import SwiftUI
 import Foundation
+import Domain
+import Infra
+import Repository
+import Presentation
 
 extension EnvironmentValues {
     /// FetchPokemonListDataStore への環境アクセス
@@ -28,7 +32,7 @@ extension EnvironmentValues {
     }
     
     /// PokemonListViewModel への環境アクセス
-    var pokemonListViewModel: PokemonListViewModel {
+    public var pokemonListViewModel: PokemonListViewModel {
         get { self[PokemonListViewModelKey.self] }
         set { self[PokemonListViewModelKey.self] = newValue }
     }
