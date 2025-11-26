@@ -19,28 +19,26 @@ public struct PokemonListView: View {
     public var body: some View {
         NavigationView {
             Group {
-                if viewModel.isLoading {
-                    ProgressView("読み込み中...")
-                } else if let errorMessage = viewModel.errorMessage {
-                    VStack(spacing: 16) {
-                        Text("エラー")
-                            .font(.headline)
-                        Text(errorMessage)
-                            .foregroundColor(.red)
-                            .multilineTextAlignment(.center)
-                        Button("再試行") {
-                            Task {
-                                await viewModel.fetchPokemonList()
-                            }
+                switch viewModel.uiState {
+                    case .loading:
+                        ProgressView("読み込み中...")
+                    case .error(let errorMessage):
+                        VStack(spacing: 16) {
+                            Text("エラー")
+                                .font(.headline)
+                            Text(errorMessage)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
                         }
-                        .buttonStyle(.bordered)
-                    }
-                    .padding()
-                } else {
-                    List(viewModel.pokemons, id: \.name) { pokemon in
-                        PokemonListItemView(pokemon: pokemon)
-                    }
-                    .listStyle(.plain)
+                        .padding()
+                    case .success:
+                        List(viewModel.pokemons, id: \.name) { pokemon in
+                            PokemonListItemView(pokemon: pokemon)
+                        }
+                        .listStyle(.plain)
+                    default:
+                        EmptyView()
+                    
                 }
             }
             .navigationTitle("ポケモン一覧")
